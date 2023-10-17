@@ -40,4 +40,24 @@ Software Engineering
 
 
 **PROJECT 3 README**
-<
+**CODE TO RUN
+1. pip install beautifulsoup4
+
+2. run the following code within the terminal
+<python3 run.py https://www.reddit.com/r/funny/comments/16brnzb/self_aware/
+Page Scrape started...
+Page extracted...
+Processing pt.1 started
+Processing started...
+Processing complete
+**END OF CODE TO RUN IN TERMINAL**
+   
+Summary.
+This program integrates project one and two to utilize imports/architecture. The file using the modules/project(functions) is run.py, this is where I call all functions imported.
+
+Name:
+Justin Burns
+ID:
+800706887
+Course:
+Software Engineering
