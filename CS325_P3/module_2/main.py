@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import sys
 import requests
 
+
+#This module expects data to process to be returned within the parameters. It takes this text, uses line 16 to parse and writes the text into the comments.txt file.
 def data_processor(data_process):
     try:
         print("Processing pt.1 started")

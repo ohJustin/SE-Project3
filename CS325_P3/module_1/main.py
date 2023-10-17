@@ -8,7 +8,7 @@ import requests
 # 'To Run Program -> python .\main.py *URL*
 #    ---->          python  your_program.py  URL-Link
 # URL = sys.argv[1]
-
+#This program takes a URL link as a parameter and simply extracts the raw data from it.
 def raw_extraction(url_to_extract):
     file = open("../CS325_P3/Data/raw/rawdata.txt", "w")
     page_to_scrape = requests.get(url_to_extract)
