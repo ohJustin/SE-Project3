@@ -1,5 +1,5 @@
 # Reddit Website Scraper ....
-# *e.g link* https://www.reddit.com/r/funny/comments/16brnzb/self_aware/
+# *e.g link* https://old.reddit.com/r/funny/comments/16brnzb/self_aware/
 import sys
 import requests
 
@@ -19,6 +19,8 @@ def raw_extraction(url_to_extract):
     else:
         file.write(page_to_scrape.text)
         print("Page extracted...")
+        return page_to_scrape.text
+
 
     file.close()
     print("Scraper Ran ...")

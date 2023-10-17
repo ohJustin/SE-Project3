@@ -11,4 +11,8 @@ if __name__ == "__main__":
     data = raw_extraction(url_from_sys)
 
     if data:
-        data_processor(data)
+        processed_signal = data_processor(data)
+        if(processed_signal):
+            print("Processing complete")
+        else:
+            print("Processing failed")

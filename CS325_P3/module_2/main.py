@@ -2,39 +2,33 @@ from bs4 import BeautifulSoup
 import sys
 import requests
 
-
-
-# Grab txt file from user.
-# txtfile = sys.argv[1]
-
-def data_processor(data_to_process):
+def data_processor(data_process):
     try:
+        print("Processing pt.1 started")
         file_name = "../CS325_P3/Data/processed/comments.txt"
-        # open file to write comments to.
-        file = open(file_name, "w", encoding='utf-8')
 
-        # opening txtfile to read from
-        with open(file_name, 'r', encoding='utf-8') as readfile:
-            content = readfile.read()
+        # Soup instantiation
+        soup = BeautifulSoup(data_process, 'lxml')
 
-            # soup instantiation
-            soup = BeautifulSoup(content, 'lxml')
+        bot_trigger = False
+        comments = soup.find_all('div', class_=lambda x: x and x.startswith('thing id-t1_'))
 
-            bot_trigger = False
-            comments = soup.find_all('div', class_=lambda x: x and x.startswith('thing id-t1_'))
+        # Open the file to write comments
+        with open(file_name, 'w', encoding='utf-8', errors = 'replace') as file:
+            print("Processing started...")
 
-        for readcomments in comments:
-            text = readcomments.find('div', class_='md').get_text()
-            #Finds bot comments, then finally starts the parsing/extraction of reddit comments which should work for all sites.
-            if "I am a bot, and this action was performed automatically." in text:
-                bot_trigger = True
-                continue
+            for readcomments in comments:
+                text = readcomments.find('div', class_='md').get_text()
+                # Find bot comments, then extract Reddit comments.
+                if "I am a bot, and this action was performed automatically." in text:
+                    bot_trigger = True
+                    continue
 
-            if bot_trigger:
-                file.write(str(text))
+                if bot_trigger:
+                    file.write(text + "\n")  # Write each comment on a new line
+                    print("Extraction/process success")
 
-        file.close()
-    except Exception as E:
-        print("error extracting...", E)
-
-
+        #print("Process finished")
+    except Exception as e:
+        print("err whilst processing data:", e)
+    return 1
