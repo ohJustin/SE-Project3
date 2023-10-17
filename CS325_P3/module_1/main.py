@@ -10,7 +10,7 @@ import requests
 # URL = sys.argv[1]
 
 def raw_extraction(url_to_extract):
-    file = open("rawdata,txt", "w")
+    file = open("../CS325_P3/Data/raw/rawdata.txt", "w")
     page_to_scrape = requests.get(url_to_extract)
     print("Page Scrape started...")
 

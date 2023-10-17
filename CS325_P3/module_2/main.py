@@ -9,9 +9,9 @@ import requests
 
 def data_processor(data_to_process):
     try:
-        file_name = "comments.txt"
+        file_name = "../CS325_P3/Data/processed/comments.txt"
         # open file to write comments to.
-        file = open("../Data/processed/comments.txt", "w", encoding='utf-8')
+        file = open(file_name, "w", encoding='utf-8')
 
         # opening txtfile to read from
         with open(file_name, 'r', encoding='utf-8') as readfile:
